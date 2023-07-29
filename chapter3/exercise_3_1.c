@@ -3,33 +3,33 @@
 #define TAB '\t'
 #define SLASH '\\'
 
-void expand(char line[], char copy[]);
+void expand(char s[], char t[]);
 int main(void) {
-  char line[] = "hello\nThis is \t sangram barge";
-  char copy[] = "                                   ";
-  expand(line, copy);
-  printf("first line: %s \nsecond line: %s\n", line, copy);
+  char s[] = "hello\nThis is \t sangram barge";
+  char t[] = "                                   ";
+  expand(s, t);
+  printf("first line: %s \nsecond line: %s\n", s, t);
 }
 
-void expand(char line[], char copy[]) {
+void expand(char s[], char t[]) {
   int i = 0, j = 0, c;
-  while((c = line[i++]) != '\0') {
+  while((c = s[i++]) != '\0') {
     switch(c) {
       case NEWLINE:{
-        copy[j++] = SLASH;
-        copy[j++] = 'n';
+        t[j++] = SLASH;
+        t[j++] = 'n';
         break;
       }
       case TAB:{
-        copy[j++] = SLASH;
-        copy[j++] = 't';
+        t[j++] = SLASH;
+        t[j++] = 't';
         break;
       }  
       default: {
-        copy[j++] = c;
+        t[j++] = c;
         break;
       }
     }
   }
-  copy[j] = '\0';
+  t[j] = '\0';
 }
