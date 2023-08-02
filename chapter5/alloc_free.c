@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define ALLOCSIZE 1000 /* alloc buffer size */
+#define ALLOCSIZE 10000 /* alloc buffer size */
 #define NULL 0 /* error return */
 
 static char allocbuff[ALLOCSIZE]; /* alloc buffer of 1000 size */
