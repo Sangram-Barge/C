@@ -7,11 +7,14 @@
 
 int get_line(char line[], int maxlen);
 int readlines(char *lineptr[], int maxlines);
-// void writelines(char *lineptr[], int maxlines);
+void writelines(char *lineptr[], int nlines);
 
 int main(void) {
+  int nlines;
   char *lineptr[LINE];
-  printf("%d \n", readlines(lineptr, LINE));
+  nlines = readlines(lineptr, LINE);
+  writelines(lineptr, nlines);
+
 }
 
 int readlines(char *lineptr[], int maxlines) {
@@ -31,6 +34,12 @@ int get_line(char line[], int maxlen) {
   int c, len = 0;
   while ((c = getchar()) != '\n' && len < maxlen) line[len++] = c;
   return len;
+}
+
+void writelines(char *lineptr[], int nlines) {
+  int i;
+  for( i = 0; i < nlines; i++) 
+    printf("%s \n", lineptr[i]);
 }
 
 /*
