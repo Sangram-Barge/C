@@ -34,14 +34,15 @@ int readlines(char *lineptr[], int maxlines) {
 
 int get_line(char line[], int maxlen) {
   int c, len = 0;
-  while ((c = getchar()) != '\n' && len < maxlen) line[len++] = c;
+  while( len < maxlen - 1 && (c = getchar()) != EOF && c != '\n' ) line[len++] = c;
+  if (c == '\n') line[len++] = c;
+  line[len] = '\0';
   return len;
 }
 
 void writelines(char *lineptr[], int nlines) {
-  int i;
-  for( i = 0; i < nlines; i++) 
-    printf("%s \n", lineptr[i]);
+  while(--nlines >= 0) 
+    printf("%s \n", *lineptr++);
 }
 
 void sort(char *lineptr[], int nlines){}
@@ -55,4 +56,19 @@ void sort(char *lineptr[], int nlines){}
     -> return -1 if error
    sort them
    print them in order
+get_line(s, lim)
+char s[];
+int lim;
+{
+    int c, i;
+
+    for (i=0; i<lim-1 && (c=getchar())!=EOF && c!='\n'; ++i)
+        s[i] = c;
+    if (c == '\n') {
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return(i);
+}
  */
