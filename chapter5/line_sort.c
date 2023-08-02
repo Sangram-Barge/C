@@ -8,13 +8,13 @@
 int get_line(char line[], int maxlen);
 int readlines(char *lineptr[], int maxlines);
 void writelines(char *lineptr[], int nlines);
-void sort(char *lineptr[], int nlines);
+void shell_sort(char *lineptr[], int nlines);
 
 int main(void) {
   int nlines;
   char *lineptr[LINE];
   if((nlines = readlines(lineptr, LINE)) >= 0){
-    sort(lineptr, nlines);
+    shell_sort(lineptr, nlines);
     writelines(lineptr, nlines);
   } else printf("input too long or some error occured");
 }
@@ -45,7 +45,18 @@ void writelines(char *lineptr[], int nlines) {
     printf("%s \n", *lineptr++);
 }
 
-void sort(char *lineptr[], int nlines){}
+void shell_sort(char *lineptr[], int nlines){
+  char *temp;
+  int gap, i, j;
+  for(gap = nlines/2; gap > 0; gap /= 2)
+    for(i = gap; i < nlines; i++)
+      for(j = i - gap; j >=0; j-=gap) {
+        if (strcmp(lineptr[j], lineptr[j+gap]) <= 0) break;
+        temp = lineptr[j];
+        lineptr[j] = lineptr[j + gap];
+        lineptr[j + gap] = temp;
+      }
+}
 /*
    read all the lines of input
     -> read the line
