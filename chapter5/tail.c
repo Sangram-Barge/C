@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "lib/get_line.c"
-#include "alloc_free.c"
+#include "../lib/get_line.c"
+#include "../lib/alloc_free.c"
 
 #define MAXLINES 1000
 #define MAXLEN 1000
