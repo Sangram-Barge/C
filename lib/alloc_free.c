@@ -1,4 +1,3 @@
-#include <stdio.h>
 #define ALLOCSIZE 10000 /* alloc buffer size */
 #define NULLL 0 /* error return */
 
@@ -13,7 +12,7 @@ char *alloc(int n) {
     allocp += n;
     return (allocp - n);
   }
-  return NULL;
+  return NULLL;
 }
 
 void freee(char *p) {
