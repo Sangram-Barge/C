@@ -18,5 +18,7 @@ int main() {
   int nlines, nwords;
   nlines = read_lines(lines);
   nwords = wordarray(lines, words, nlines);
+  printf("\n");
+  while(nwords--) printf("%s %d\n", words[nwords], nwords);
   return 0;
 }
