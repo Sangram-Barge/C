@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "alloc_free.c"
+#include "../lib/alloc_free.c"
 
 #define MAXLEN 100
 #define LINE 100
@@ -30,7 +30,7 @@ int readlines(char *lineptr[], int maxlines) {
       strcpy(p, line);
       lineptr[count++] = p;
     }
-    return count;
+  return count;
 }
 
 int readlinesinplace(char *lineptr[], int maxlines) {
@@ -41,7 +41,7 @@ int readlinesinplace(char *lineptr[], int maxlines) {
     else {
       printf("%s", lineptr[count]);
     }
-    return count;
+  return count;
 }
 
 int get_line(char line[], int maxlen) {

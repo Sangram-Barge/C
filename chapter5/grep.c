@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "lib/get_line.c"
-#include "lib/pattern.c"
+#include "../lib/get_line.c"
+#include "../lib/pattern.c"
 
 #define MAXLINE 1000
 #define OPTFLAG '-'

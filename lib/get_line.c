@@ -6,6 +6,7 @@
 #define EOFF '\0'
 #define MAXLEN 100
 #define NULLL 0
+#define SPACE ' '
 
 int get_line(char line[], int maxlen) {
   int c, len = 0;
@@ -30,16 +31,10 @@ int read_lines(char *lines[]) {
 }
 
 int wordarray(char *lines[], char *words[], int nlines) {
-  int count, i;
-  char *line, c;
+  int count, swp = 0, ewp = 0, wr = 0;
+  char *w, c;
   while (nlines--) {
-    line = alloc(strlen(lines[nlines]));
-    strcpy(line, lines[nlines]);
-    for(i = 0; i < strlen(line) && (c = *(line + i)) != EOFF; i++)
-          if (c == ' ') count++;
-    count++;
-    printf("%s\n", line);
+    for(ewp = 0; (c = *(ewp + lines[nlines])) != SPACE; ewp++);
   }
-  printf("%d\n", count);
   return count;
 }
