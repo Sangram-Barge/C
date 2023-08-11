@@ -34,7 +34,7 @@ int wordarray(char *lines[], char *words[], int nlines) {
   int count, swp = 0, ewp = 0, wr = 0;
   char *w, c;
   while (nlines--) {
-    for(ewp = 0; (c = *(ewp + lines[nlines])) != SPACE; ewp++);
+
   }
   return count;
 }
