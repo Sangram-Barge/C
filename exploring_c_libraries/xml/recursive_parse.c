@@ -27,8 +27,14 @@ void error(char *s1, char *s2) {
 
 static void crawl(xmlNodePtr node) {
   xmlNodePtr current;
+  xmlChar *attribute;
   for (current = node; current; current = current -> next) {
-    if (current -> type == XML_ELEMENT_NODE) fprintf(stdout, "%s\n", current -> name);
+    if (current -> type == XML_ELEMENT_NODE) {
+      fprintf(stdout, "%s\n", current -> name);
+      attribute = xmlGetProp(current, (xmlChar *)"type");
+      if (attribute != NULL) fprintf(stdout, "attr : %s\n", attribute);
+      xmlFree(attribute);
+    }
     crawl(current -> children);
   }
 }
